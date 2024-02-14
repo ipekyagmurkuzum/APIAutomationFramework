@@ -11,13 +11,13 @@ public class DataProviders {
         String path = System.getProperty("user.dir") + "//testData//UserData.xlsx";
         ExcelUtility xl = new ExcelUtility(path);
 
-        int rowCount = xl.getRowCount("Sheet1");
-        int colCount = xl.getCellCount("Sheet1", 1);
+        int rowCount = xl.getRowCount();
+        int colCount = xl.getCellCount(1);
 
         Object apiData[][] = new String[rowCount][colCount];
         for (int i = 1; i <= rowCount; i++) {
             for (int j = 0; j < colCount; j++) {
-                apiData[i - 1][j] = xl.getCellData("Sheet1", i, j);
+                apiData[i - 1][j] = xl.getCellData(i, j);
             }
         }
         return apiData;
@@ -28,11 +28,11 @@ public class DataProviders {
         String path = System.getProperty("user.dir") + "//testData//UserData.xlsx";
         ExcelUtility xl = new ExcelUtility(path);
 
-        int rowCount = xl.getRowCount("Sheet1");
+        int rowCount = xl.getRowCount();
 
         Object apiData[] = new String[rowCount];
         for (int i = 1; i <= rowCount; i++) {
-            apiData[i - 1] = xl.getCellData("Sheet1", i, 1);
+            apiData[i - 1] = xl.getCellData(i, 1);
         }
         return apiData;
     }

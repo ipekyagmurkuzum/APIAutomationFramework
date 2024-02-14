@@ -28,20 +28,20 @@ public class ExcelUtility {
         this.path = path;
     }
 
-    public int getRowCount(String sheetName) throws IOException {
+    public int getRowCount() throws IOException {
         fileInputStream = new FileInputStream(path);
         workbook = new XSSFWorkbook(fileInputStream);
-        sheet = workbook.getSheet(sheetName);
+        sheet = workbook.getSheetAt(0);
         int rowCount = sheet.getLastRowNum();
         workbook.close();
         fileInputStream.close();
         return rowCount;
     }
 
-    public int getCellCount(String sheetName, int rowNum) throws IOException {
+    public int getCellCount(int rowNum) throws IOException {
         fileInputStream = new FileInputStream(path);
         workbook = new XSSFWorkbook(fileInputStream);
-        sheet = workbook.getSheet(sheetName);
+        sheet = workbook.getSheetAt(0);
         row = sheet.getRow(rowNum);
         int cellCount = row.getLastCellNum();
         workbook.close();
@@ -49,10 +49,10 @@ public class ExcelUtility {
         return cellCount;
     }
 
-    public String getCellData(String sheetName, int rowNum, int colNum) throws IOException {
+    public String getCellData(int rowNum, int colNum) throws IOException {
         fileInputStream = new FileInputStream(path);
         workbook = new XSSFWorkbook(fileInputStream);
-        sheet = workbook.getSheet(sheetName);
+        sheet = workbook.getSheetAt(0);
         row = sheet.getRow(rowNum);
         cell = row.getCell(colNum);
 
