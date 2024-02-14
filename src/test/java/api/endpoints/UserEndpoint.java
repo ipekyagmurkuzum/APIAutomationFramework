@@ -31,6 +31,7 @@ public class UserEndpoint {
         Response response = given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
+                .pathParam("username", username)
                 .body(payload)
                 .when()
                 .put(putUrl);
