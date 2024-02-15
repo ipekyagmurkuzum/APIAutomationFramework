@@ -13,3 +13,11 @@
 16:21:05.467 [main] INFO  api.test.UserTests - *********** Creating user *************
 16:21:07.923 [main] INFO  api.test.UserTests - *********** User is created *************
 16:21:07.937 [main] INFO  api.test.UserTests - *********** Reading user info *************
+16:40:00.318 [main] INFO  api.test.UserTestsFromProperties - *********** Creating user *************
+16:40:03.071 [main] INFO  api.test.UserTestsFromProperties - *********** User is created *************
+16:40:03.084 [main] INFO  api.test.UserTestsFromProperties - *********** Reading user info *************
+16:40:20.269 [main] INFO  api.test.UserTestsFromProperties - *********** Creating user *************
+16:40:22.945 [main] INFO  api.test.UserTestsFromProperties - *********** Reading user info *************
+16:40:37.400 [main] INFO  api.test.UserTestsFromProperties - *********** Creating user *************
+16:40:40.175 [main] INFO  api.test.UserTestsFromProperties - *********** User is created *************
+16:40:40.192 [main] INFO  api.test.UserTestsFromProperties - *********** Reading user info *************

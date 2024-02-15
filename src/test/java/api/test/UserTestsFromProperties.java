@@ -9,9 +9,10 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static api.endpoints.UserEndpoint.*;
+import static api.endpoints.UserEndpointsFromProperties.*;
 
-public class UserTests {
+
+public class UserTestsFromProperties {
 
     Faker faker;
     User userPayload;
