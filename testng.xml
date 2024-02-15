@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Pet Suite">
+    <listeners>
+        <listener class-name="api.utils.ExtentReportManager"></listener>
+    </listeners>
+    <test name="Pet Tests" thread-count="5">
+        <classes>
+            <class name="api.test.UserTests"/>
+<!--            <class name="api.test.DataDrivenUserTests"/>-->
+        </classes>
+    </test> <!-- PetTests -->
+</suite> <!-- Pet Suite -->
