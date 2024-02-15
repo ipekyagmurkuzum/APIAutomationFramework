@@ -3,6 +3,9 @@ package api.test;
 import api.payloads.User;
 import com.github.javafaker.Faker;
 import io.restassured.response.Response;
+import org.apache.commons.logging.impl.Log4JLogger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -13,6 +16,7 @@ public class UserTests {
 
     Faker faker;
     User userPayload;
+    public Logger logger;
     @BeforeClass
     public void setupData(){
         faker = new Faker();
@@ -25,16 +29,22 @@ public class UserTests {
         userPayload.setEmail(faker.internet().safeEmailAddress());
         userPayload.setPassword(faker.internet().password(5,10));
         userPayload.setPhone(faker.phoneNumber().cellPhone());
+
+        logger= LogManager.getLogger(this.getClass());
     }
 
     @Test(priority = 1)
     public void testPostUser() {
+        logger.info("*********** Creating user *************");
         Response response = createUser(userPayload);
         response.then().log().all();
         Assert.assertEquals(response.getStatusCode(), 200);
+        logger.info("*********** User is created *************");
+
     }
     @Test(priority = 2)
     public void testGetUserByName(){
+        logger.info("*********** Reading user info *************");
         Response response = readUser(userPayload.getUsername());
         response.then().log().all();
         Assert.assertEquals(response.getBody().jsonPath().getJsonObject("username"),userPayload.getUsername());
@@ -46,7 +56,6 @@ public class UserTests {
         Response response = updateUser(userPayload,userPayload.getUsername());
         response.then().log().all();
         Assert.assertEquals(response.statusCode(),200);
-
         Response responseAfterUpdate = readUser(userPayload.getUsername());
         Assert.assertEquals(responseAfterUpdate.getBody().jsonPath().getJsonObject("phone"),"999-999-99-99");
     }
